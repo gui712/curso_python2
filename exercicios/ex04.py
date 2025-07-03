@@ -28,21 +28,38 @@ questions = [
     },
     {
         'Question': 'What is 2 + 2?', 
-        'Options':['1', '3', '4', '5'],
-        'Answer': '4'
+        'Options':['A) 1', 'B) 3', 'C) 4', 'D) 5'],
+        'Answer': 'C'
     },
     {
         'Question': 'What is 5*5?',
-        'Options': ['25', '55', '10', '51'],
-        'Answer': '25'
+        'Options': ['A) 25', 'B) 55', 'C) 10', 'D) 51'],
+        'Answer': 'A'
     },
     {
         'Question': 'What is 10/2?',
-        'Options': ['4', '5', '10', '2'],
-        'Answer': '5'
+        'Options': ['A) 4', 'B) 5', 'C) 10', 'D) 2'],
+        'Answer': 'B'
     }
 ]
 
+qtd_acertos = 0 
 for question in questions:
-    print(question['Question'])
+    print('Question: ', question['Question'])
     print()
+
+    for i, option in enumerate(question['Options']):
+        print(option)
+    
+    choose = input('Choose an option (A, B, C, D): ').strip().upper()
+    if choose == question['Answer']:
+        qtd_acertos += 1
+        print('Correct!')
+    else:
+        print('Incorrect! The correct answer is:', question['Answer'])
+
+
+
+    print()
+
+print('You got', qtd_acertos, 'out of', len(questions), 'correct.')
